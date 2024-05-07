@@ -1,22 +1,23 @@
 class Solution {
 public:
-    int helper (int n, vector<int> &memo) {
-        if (n < 0) {
-            return 0;
-        }
-        if (n == 0) {
-            return 1;
-        }
-        if(memo[n] != -1) {
-            return memo[n];
-        }
-        // if (n > 1){
-        //     return 1;
-        // }
-        return memo[n] = helper(n -1, memo) + helper(n-2, memo);
-     }
     int climbStairs(int n) {
-        vector<int> memo(n+1,-1); 
-        return helper(n, memo);
+        int res = 0;
+        int one = 1;
+        int two = 2;
+        if (n == 1) {
+            return one;
+        }
+        if (n == 2){
+            return two;
+        } 
+        for (int i = 2; i < n; i++) {
+            
+            res = one + two;
+            one = two;
+            two = res;
+ 
+        }
+        
+        return res;
     }
 };
