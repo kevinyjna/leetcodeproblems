@@ -15,15 +15,29 @@ class Solution(object):
         # return count
         
         #Two pointer: Time complexity O(n*log n)
+        # nums.sort()
+        # left = 0
+        # right = len(nums) - 1
+        # count = 0
+        # while left < right:
+        #     if nums[left] + nums[right] < target:
+        #         count += (right - left)
+        #         left += 1
+        #     else:
+        #         right -= 1
+        # return count
         nums.sort()
-        left = 0
-        right = len(nums) - 1
-        count = 0
-        while left < right:
-            if nums[left] + nums[right] < target:
-                count += (right - left)
-                left += 1
+        cnt = 0
+
+        i = 0
+        j = len(nums)-1
+
+        while i < j:
+            if nums[i] + nums[j] < target:
+                cnt += j-i
+                i += 1
             else:
-                right -= 1
-        return count
+                j -= 1
+
+        return cnt
         
