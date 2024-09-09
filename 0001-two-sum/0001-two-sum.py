@@ -1,11 +1,11 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        hash = {}
-        i = 0
-        while i < len(nums):
-            temp = target - nums[i]
-            if temp in hash:
-                return [i, hash[temp]]
-            hash[nums[i]] = i
-            i+=1
+        num_to_index = {}
+        for i, num in enumerate(nums):
+            complement = target - num
+            if complement in num_to_index:
+                return [i, num_to_index[complement]]
+            num_to_index[num] = i
             
+        return []
+        
