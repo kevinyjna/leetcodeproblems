@@ -3,10 +3,11 @@ class Solution:
         
         n = len(cost)
         dp = [0] * n
-        dp[0] = cost[0]
-        dp[1] = cost[1]
+        prev2 = cost[0]
+        prev1 = cost[1]
         
         for i in range(2, n):
-            dp[i] = min(cost[i] + dp[i-1], cost[i] + dp[i-2])
-
-        return min(dp[n-1], dp[n-2])
+            curr = cost[i] + min(prev2, prev1)
+            prev2, prev1 = prev1, curr
+        
+        return min(prev2, prev1)
