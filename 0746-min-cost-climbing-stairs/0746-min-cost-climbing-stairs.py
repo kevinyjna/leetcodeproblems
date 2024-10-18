@@ -8,5 +8,5 @@ class Solution:
         
         for i in range(2, n):
             dp[i] = min(cost[i] + dp[i-1], cost[i] + dp[i-2])
-        print(dp)
+
         return min(dp[n-1], dp[n-2])
