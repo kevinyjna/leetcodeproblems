@@ -12,7 +12,6 @@ class Solution:
         def getLeaf(root, result):
             if root.left is None and root.right is None:
                 result.append(root.val)
-                print(result)
                 return
             if root.left:
                 getLeaf(root.left, result)
