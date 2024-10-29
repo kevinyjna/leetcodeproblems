@@ -9,6 +9,4 @@ class Solution:
                 nums[i] = max(nums[i], nums[i-1])
             else:
                 nums[i] = max(nums[i-1],nums[i]+nums[i-2])
-            
-        print(nums)
         return nums[-1]
